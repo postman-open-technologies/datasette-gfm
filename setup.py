@@ -13,22 +13,22 @@ def get_long_description():
 
 
 setup(
-    name="datasette-yaml",
-    description="Export Datasette records as YAML",
+    name="datasette-gfm",
+    description="Export Datasette records as GitHub flavoured markdown",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    author="Simon Willison",
-    url="https://github.com/simonw/datasette-yaml",
+    author="Mike Ralphson",
+    url="https://github.com/postman-open-technologies/datasette-gfm",
     project_urls={
-        "Issues": "https://github.com/simonw/datasette-yaml/issues",
-        "CI": "https://github.com/simonw/datasette-yaml/actions",
-        "Changelog": "https://github.com/simonw/datasette-yaml/releases",
+        "Issues": "https://github.com/postman-open-technologies/datasette-gfm/issues",
+        "CI": "https://github.com/postman-open-technologies/datasette-gfm/actions",
+        "Changelog": "https://github.com/postman-open-technologies/datasette-gfm/releases",
     },
     license="Apache License, Version 2.0",
     version=VERSION,
-    packages=["datasette_yaml"],
-    entry_points={"datasette": ["yaml = datasette_yaml"]},
+    packages=["datasette_gfm"],
+    entry_points={"datasette": ["gfm = datasette_gfm"]},
     install_requires=["datasette"],
     extras_require={"test": ["pytest", "pytest-asyncio", "httpx", "sqlite-utils"]},
-    tests_require=["datasette-yaml[test]"],
+    tests_require=["datasette-gfm[test]"],
 )

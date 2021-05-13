@@ -12,11 +12,11 @@ async def test_plugin_is_installed():
         response = await client.get("http://localhost/-/plugins.json")
         assert 200 == response.status_code
         installed_plugins = {p["name"] for p in response.json()}
-        assert "datasette-yaml" in installed_plugins
+        assert "datasette-gfm" in installed_plugins
 
 
 @pytest.mark.asyncio
-async def test_datasette_yaml(tmp_path_factory):
+async def test_datasette_gfm(tmp_path_factory):
     db_directory = tmp_path_factory.mktemp("dbs")
     db_path = db_directory / "test.db"
     db = sqlite_utils.Database(db_path)
@@ -29,7 +29,7 @@ async def test_datasette_yaml(tmp_path_factory):
     )
     app = Datasette([str(db_path)]).app()
     async with httpx.AsyncClient(app=app) as client:
-        response = await client.get("http://localhost/test/dogs.yaml")
+        response = await client.get("http://localhost/test/dogs.md")
         assert response.status_code == 200
         assert (
             response.text.strip()

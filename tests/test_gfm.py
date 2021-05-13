@@ -35,14 +35,10 @@ async def test_datasette_gfm(tmp_path_factory):
             response.text.strip()
             == textwrap.dedent(
                 """
-        - id: 1
-          name: Cleo
-          age: 5
-          weight: 48.4
-        - id: 2
-          name: Pancakes
-          age: 4
-          weight: 33.2
+              |id|name|age|weight|
+              |---|---|---|---|
+              1|Cleo|5|48.4|
+              2|Pancakes|4|33.2|
         """
             ).strip()
         )

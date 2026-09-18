@@ -12,6 +12,8 @@ jobs:
         python-version: [3.6, 3.7, 3.8]
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
@@ -34,6 +36,8 @@ jobs:
     needs: [test]
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Set up Python
       uses: actions/setup-python@v2
       with:

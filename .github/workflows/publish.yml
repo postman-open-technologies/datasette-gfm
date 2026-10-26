@@ -7,6 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8]
@@ -31,6 +32,7 @@ jobs:
         pytest
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     needs: [test]
     steps:
     - uses: actions/checkout@v2
